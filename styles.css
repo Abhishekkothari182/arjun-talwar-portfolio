@@ -240,3 +240,9 @@ footer {
   .hero { grid-template-columns: 1fr; gap: 2.5rem; min-height: 0; padding-top: 3rem !important; }
   .hero-photo { justify-self: start; max-width: 320px; order: -1; }
 }
+
+/* Alternate featured-video rows */
+@media (min-width: 861px) {
+  .video-feature.reverse { grid-template-columns: 1fr 1.6fr; }
+  .video-feature.reverse .video-frame { order: 2; }
+}
