@@ -27,3 +27,17 @@ const observer = new IntersectionObserver(
   { threshold: 0.12 }
 );
 sections.forEach((s) => observer.observe(s));
+
+// Gallery lightbox
+const box = document.querySelector(".lightbox");
+const boxImg = box.querySelector("img");
+document.querySelectorAll(".shot").forEach((shot) =>
+  shot.addEventListener("click", () => {
+    boxImg.src = shot.dataset.full;
+    boxImg.alt = shot.querySelector("img").alt;
+    box.hidden = false;
+  })
+);
+const closeBox = () => { box.hidden = true; boxImg.src = ""; };
+box.addEventListener("click", (e) => { if (e.target !== boxImg) closeBox(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeBox(); });
